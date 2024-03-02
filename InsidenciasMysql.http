@@ -1,0 +1,6 @@
+@InsidenciasMysql_HostAddress = http://localhost:5173
+
+GET {{InsidenciasMysql_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
