@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InsidenciasMysql")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+257c03152eb985588e22263b0b6d6718dd12fb52")]
 [assembly: System.Reflection.AssemblyProductAttribute("InsidenciasMysql")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InsidenciasMysql")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,6 +4,7 @@ using InsidenciasMysql.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InsidenciasMysql.Migrations
 {
     [DbContext(typeof(InsidencesDbContext))]
-    partial class InsidencesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240303031221_allThatsMissingRest")]
+    partial class allThatsMissingRest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
