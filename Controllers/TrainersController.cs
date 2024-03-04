@@ -42,37 +42,6 @@ namespace InsidenciasMysql.Controllers
             return trainer;
         }
 
-        // PUT: api/Trainers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTrainer(int id, Trainer trainer)
-        {
-            if (id != trainer.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(trainer).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TrainerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/Trainers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -84,21 +53,6 @@ namespace InsidenciasMysql.Controllers
             return CreatedAtAction("GetTrainer", new { id = trainer.Id }, trainer);
         }
 
-        // DELETE: api/Trainers/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTrainer(int id)
-        {
-            var trainer = await _context.Trainers.FindAsync(id);
-            if (trainer == null)
-            {
-                return NotFound();
-            }
-
-            _context.Trainers.Remove(trainer);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
 
         private bool TrainerExists(int id)
         {
