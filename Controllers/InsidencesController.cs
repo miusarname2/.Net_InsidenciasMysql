@@ -9,6 +9,8 @@ using InsidenciasMysql.DataAccess;
 using InsidenciasMysql.Model.DataModels;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Newtonsoft.Json;
 
 namespace InsidenciasMysql.Controllers
 {
@@ -85,11 +87,20 @@ namespace InsidenciasMysql.Controllers
         [HttpPost]
         public async Task<ActionResult<Insidences>> PostInsidences(Insidences insidences)
         {
-            insidences.reporterName = "<Camper>" + insidences.reporterName;
-            _context.Insidences.Add(insidences);
-            await _context.SaveChangesAsync();
+            try
+            {
+                string personaJson = JsonConvert.SerializeObject(insidences);
+                insidences.reporterName = "<Camper>" + insidences.reporterName;
+                _context.Insidences.Add(insidences);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInsidences", new { id = insidences.Id }, insidences);
+
+                return Ok(personaJson);
+            }
+            catch (Exception ex)
+            {
+                return CreatedAtAction("GetInsidences", new { id = insidences.Id }, insidences);
+            }
         }
 
         private bool InsidencesExists(int id)
